@@ -15,3 +15,16 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+
+    letras = {}
+
+    with open("files/input/data.csv") as file:
+        for fila in file:
+            columna = fila.split()
+            numero = int(columna[1])
+            letra = fila[0]
+            if letra in letras:
+                letras[letra] += numero
+            else:
+                 letras[letra] = numero
+    return sorted(letras.items())

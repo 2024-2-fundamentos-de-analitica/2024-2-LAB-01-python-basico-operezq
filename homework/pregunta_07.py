@@ -25,3 +25,18 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+
+    letras = {}
+
+    with open("files/input/data.csv") as file:
+        for fila in file:
+            fila = fila.split()
+            letra = fila[0]
+            numero = int(fila[1])
+            if numero not in letras:
+                letras[numero] = []                    
+            
+            letras[numero].append(letra)
+    return sorted(letras.items())
+
+print(pregunta_07())

@@ -16,3 +16,19 @@ def pregunta_11():
 
 
     """
+
+    letras = {}
+    conteo = []
+
+    with open("files/input/data.csv") as file:
+        for fila in file:
+            fila = fila.split()
+            numero = fila[1]
+            numero = int(numero)
+            letra = fila[3].split(",")
+            for i in letra:
+                if i not in letras:
+                    letras[i] = numero
+                else:
+                    letras[i] += numero
+    return dict(sorted(letras.items()))

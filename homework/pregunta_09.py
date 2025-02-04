@@ -24,3 +24,18 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+
+    letras = {}
+
+    with open("files/input/data.csv") as file:
+        for fila in file:
+            fila = fila.split()[4].split(",")
+            for grupo in fila:
+                letra = grupo.split(":")[0]
+                if letra in letras:
+                    letras[letra] += 1
+                else:
+                    letras[letra] = 1
+                
+
+    return dict(sorted(letras.items()))

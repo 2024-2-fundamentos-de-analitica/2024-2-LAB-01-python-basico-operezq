@@ -15,3 +15,21 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
+    letras = {}
+    conteo = []
+
+    with open("files/input/data.csv") as file:
+        for fila in file:
+            letra = fila[0]
+            columna = fila.split()
+            numero = int(columna[1])
+            if letra in letras:
+                letras[letra][0] = max(letras[letra][0],numero)
+                letras[letra][1] = min(letras[letra][1],numero)
+            else:
+                 letras[letra] = [numero,numero]
+    for key,value in letras.items():
+        conteo.append((key,value[0], value[1]))        
+
+    return sorted(conteo)
+

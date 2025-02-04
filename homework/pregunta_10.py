@@ -20,3 +20,15 @@ def pregunta_10():
 
 
     """
+
+    conteo = []
+
+    with open("files/input/data.csv") as file:
+        for fila in file:
+            fila = fila.split()
+            letra = fila[0]
+            tercera = len(fila[3].split(","))
+            cuarta = len(fila[4].split(","))
+            conteo.append((letra,tercera,cuarta))
+
+    return conteo

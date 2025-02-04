@@ -13,4 +13,12 @@ def pregunta_01():
     Rta/
     214
 
+
     """
+    suma = 0
+    with open("files/input/data.csv") as file:
+        for i in file:
+            column = i.split()
+            suma = suma + int(column[1])
+
+    return suma

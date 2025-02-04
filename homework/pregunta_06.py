@@ -26,3 +26,23 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    letras = {}
+    conteo = []
+
+    with open("files/input/data.csv") as file:
+        for fila in file:
+            fila = fila.split()[4].split(",")
+            for grupo in fila:
+                letra,numero = grupo.split(":")
+                numero = int(numero)
+                if letra in letras:
+                    letras[letra][0] = min(letras[letra][0],numero)
+                    letras[letra][1] = max(letras[letra][1],numero)
+                else:
+                    letras[letra] = [numero,numero]
+    for key,value in letras.items():
+        conteo.append((key,value[0], value[1]))   
+
+    return sorted(conteo)
+
+print(pregunta_06())
