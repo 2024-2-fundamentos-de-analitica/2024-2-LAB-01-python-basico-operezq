@@ -34,7 +34,7 @@ def pregunta_08():
         for fila in file:
             fila = fila.split()
             letra = fila[0]
-            numero = fila[1]
+            numero = int(fila[1])
 
             if numero not in letras:
                 letras[numero] = set()
@@ -42,3 +42,4 @@ def pregunta_08():
 
 
     return [(key, sorted(value)) for key, value in sorted(letras.items())]
+print(pregunta_08())
